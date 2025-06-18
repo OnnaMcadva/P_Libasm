@@ -106,3 +106,6 @@ int main(void) {
 
     return 0;
 }
+
+
+// gcc -Wall -Wextra -Werror main.c -L. -lasm -o test_exec
