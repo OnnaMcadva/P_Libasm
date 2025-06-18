@@ -13,6 +13,9 @@ OBJS = $(SRCS:.s=.o)
 BONUS_SRCS = ft_atoi_base.s ft_list_push_front.s ft_list_size.s ft_list_sort.s ft_list_remove_if.s
 BONUS_OBJS = $(BONUS_SRCS:.s=.o)
 
+EXEC = test_exec
+MAIN = main.c
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -25,11 +28,18 @@ clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(EXEC) obj.dump
 
 re: fclean all
 
 bonus: $(OBJS) $(BONUS_OBJS)
 	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 
-.PHONY: all clean fclean re bonus
+$(EXEC): $(NAME) $(MAIN)
+	$(CC) $(CFLAGS) $(MAIN) -L. -lasm -o $(EXEC)
+
+dump: $(EXEC)
+	objdump -S -M intel -d $(EXEC) > obj.dump
+	cat obj.dump
+
+.PHONY: all clean fclean re bonus dump
