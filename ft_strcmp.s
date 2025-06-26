@@ -38,3 +38,4 @@ ft_strcmp:
 .end:
     ret                     ; Return result in rax
 
+section .note.GNU-stack noalloc noexec nowrite progbits

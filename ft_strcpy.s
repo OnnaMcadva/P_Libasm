@@ -30,3 +30,4 @@ ft_strcpy:
 	jne .loop              ; If not null, continue loop
 	ret                    ; Return original dst (stored in rax)
 
+section .note.GNU-stack noalloc noexec nowrite progbits

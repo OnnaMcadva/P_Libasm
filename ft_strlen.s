@@ -15,3 +15,4 @@ ft_strlen:
 .end:
 	ret                      ; return with length in rax
  
+section .note.GNU-stack noalloc noexec nowrite progbits

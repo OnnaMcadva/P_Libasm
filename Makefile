@@ -36,7 +36,10 @@ bonus: $(OBJS) $(BONUS_OBJS)
 	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 $(EXEC): $(NAME) $(MAIN)
-	$(CC) $(CFLAGS) $(MAIN) -L. -lasm -o $(EXEC)
+	$(CC) $(CFLAGS) -fPIE $(MAIN) -L. -lasm -lc -o $(EXEC)
+
+# $(EXEC): $(NAME) $(MAIN)
+# 	$(CC) $(CFLAGS) $(MAIN) -L. -lasm -o $(EXEC)
 
 dump: $(EXEC)
 	objdump -S -M intel -d $(EXEC) > obj.dump

@@ -13,13 +13,13 @@
 ;
 ; Notes:
 ; - Calls syscall directly.
-; - Sets errno on failure using ___error.
+; - Sets errno on failure using __errno_location.
 ; - Preserves error code using stack (push/pop).
 ; --------------------------------------
 
 section .text
 global ft_write
-extern ___error
+extern __errno_location
 
 ft_write:
     mov rax, 1              ; syscall number for write
@@ -30,9 +30,10 @@ ft_write:
 .error:
     neg rax                 ; convert error code to positive
     push rax                ; save error code on stack
-    call ___error           ; get pointer to errno
+    call __errno_location wrt ..plt ; get pointer to errno via PLT
     pop rcx                 ; restore error code
     mov [rax], rcx          ; set errno = error code
     mov rax, -1             ; return -1 to signal error
     ret
 
+section .note.GNU-stack noalloc noexec nowrite progbits
