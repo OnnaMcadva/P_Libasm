@@ -110,5 +110,5 @@ int main(void) {
 
 // gcc -Wall -Wextra -Werror main.c -L. -lasm -o test_exec
 // make           # соберёт libasm.a
-// make test_exec # соберёт main.c и слинкует с твоей библиотекой
-// make dump      # выведет дизассемблированный код твоего исполняемого файла
+// make test_exec # соберёт main.c и слинкует с библиотекой
+// make dump      # выведет дизассемблированный код исполняемого файла
