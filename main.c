@@ -37,6 +37,7 @@ int main(void) {
 
     // Тест ft_read
     printf("Enter some text: ");
+    fflush(stdout); // ← это решает проблему???
     ret = ft_read(0, buf, 49);
     if (ret >= 0) {
         buf[ret] = '\0';
