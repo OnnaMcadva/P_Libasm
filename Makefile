@@ -1,3 +1,10 @@
+# Colors
+PINK_BRR     = \033[38;5;219m
+YELLOW_BR   = \033[38;5;227m
+
+# Text styles
+BOLD        = \033[1m
+
 NAME = libasm.a
 
 NASM = nasm
@@ -20,6 +27,20 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
+	@echo "$(BOLD)$(PINK_BRR)\nlibasm is ready!$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⢀⣾⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣰⣿⣿⣿⣿⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⡿⠿⢿⣿⣿⣶⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⠀⢼⡟⠉⣻⣿⣿⡏⠰⣷⠀⢹⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⠀⢻⣷⡀⠙⣻⣿⣿⣄⣠⣴⡿⠋⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⠀⠀⣭⣉⣛⣻⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⢠⠞⢡⣽⣿⣿⠿⢻⣿⣿⣿⣏⣿⣿⣿⣧⣤⣤⣤⣄⠀⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⠘⣴⡨⠛⠋⠁⠀⣼⣿⣿⣿⡟⣿⣿⣿⣿⣯⢈⣿⣿⠂⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⠘⠃⠀⠀⠀⢀⣤⣿⣷⡜⣿⣧⡉⠉⠙⠋⠁⠈⠉⠁⠀⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(YELLOW_BR)⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠁⢠⣾⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(DEF_COLOR)"
+	@echo "$(BOLD)$(PINK_BRR)		   type make test$(DEF_COLOR)"
 
 %.o: %.s
 	$(NASM) $(NASMFLAGS) $< -o $@

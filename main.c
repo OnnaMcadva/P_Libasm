@@ -133,69 +133,67 @@ int main(void) {
     }
 
     
-      // BONUS
-        // ft_atoi_base
-    printf("\n--- ft_atoi_base ---\n");
-    printf("ft_atoi_base(\"1010\", \"01\") = %d (should be 10)\n", ft_atoi_base("1010", "01"));
-    printf("ft_atoi_base(\"-1A\", \"0123456789ABCDEF\") = %d (should be -26)\n", ft_atoi_base("-1A", "0123456789ABCDEF"));
-    printf("ft_atoi_base(\"zz\", \"z\") = %d (should be 0 — invalid base)\n", ft_atoi_base("zz", "z"));
+    //   // BONUS
+    //     // ft_atoi_base
+    // printf("\n--- ft_atoi_base ---\n");
+    // printf("ft_atoi_base(\"1010\", \"01\") = %d (should be 10)\n", ft_atoi_base("1010", "01"));
+    // printf("ft_atoi_base(\"-1A\", \"0123456789ABCDEF\") = %d (should be -26)\n", ft_atoi_base("-1A", "0123456789ABCDEF"));
+    // printf("ft_atoi_base(\"zz\", \"z\") = %d (should be 0 — invalid base)\n", ft_atoi_base("zz", "z"));
 
-    t_list *list = NULL;
-    // ft_list_push_front and ft_list_size
-    printf("\n--- ft_list_push_front / ft_list_size ---\n");
-    ft_list_push_front(&list, strdup("third"));
-    ft_list_push_front(&list, strdup("second"));
-    ft_list_push_front(&list, strdup("first"));
-    printf("List size: %d\n", ft_list_size(list));
-    print_list(list);
+    // t_list *list = NULL;
+    // // ft_list_push_front and ft_list_size
+    // printf("\n--- ft_list_push_front / ft_list_size ---\n");
+    // ft_list_push_front(&list, strdup("third"));
+    // ft_list_push_front(&list, strdup("second"));
+    // ft_list_push_front(&list, strdup("first"));
+    // printf("List size: %d\n", ft_list_size(list));
+    // print_list(list);
 
-    // ft_list_sort
-    printf("\n---Sort test:---\n");
-    t_list *sort_list = NULL;
-    char *test_data[] = {"date", "cherry", "banana", "apple", NULL};
-    for (int i = 0; test_data[i] != NULL; i++) {
-        char *dup = strdup(test_data[i]);
-        if (!dup) {
-            printf("Memory allocation failed!\n");
-            exit(1);
-        }
-        ft_list_push_front(&sort_list, dup);
-    }
+    // // ft_list_sort
+    // printf("\n---Sort test:---\n");
+    // t_list *sort_list = NULL;
+    // char *test_data[] = {"date", "cherry", "banana", "apple", NULL};
+    // for (int i = 0; test_data[i] != NULL; i++) {
+    //     char *dup = strdup(test_data[i]);
+    //     if (!dup) {
+    //         printf("Memory allocation failed!\n");
+    //         exit(1);
+    //     }
+    //     ft_list_push_front(&sort_list, dup);
+    // }
     
-    printf("Before sort: ");
-    print_list(sort_list);
+    // printf("Before sort: ");
+    // print_list(sort_list);
     
-    ft_list_sort(&sort_list, cmp_str);
+    // ft_list_sort(&sort_list, cmp_str);
     
-    printf("After sort: ");
-    print_list(sort_list);
+    // printf("After sort: ");
+    // print_list(sort_list);
     
-    while (sort_list) {
-        t_list *tmp = sort_list->next;
-        free(sort_list->data);
-        free(sort_list);
-        sort_list = tmp;
-    }
+    // while (sort_list) {
+    //     t_list *tmp = sort_list->next;
+    //     free(sort_list->data);
+    //     free(sort_list);
+    //     sort_list = tmp;
+    // }
 
-    printf("\n---Remove if test:---\n");
-    printf("Original list: ");
-    print_list(list);
+    // printf("\n---Remove if test:---\n");
+    // printf("Original list: ");
+    // print_list(list);
     
-    ft_list_remove_if(&list, "second", cmp_str, free_str);
-    printf("After removing 'second': ");
-    print_list(list);
+    // ft_list_remove_if(&list, "second", cmp_str, free_str);
+    // printf("After removing 'second': ");
+    // print_list(list);
     
-    while (list) {
-        t_list *tmp = list->next;
-        free(list->data);
-        free(list);
-        list = tmp;
-    }
+    // while (list) {
+    //     t_list *tmp = list->next;
+    //     free(list->data);
+    //     free(list);
+    //     list = tmp;
+    // }
     return 0;
 }
 
-
-// gcc -Wall -Wextra -Werror main.c -L. -lasm -o test_exec
-// make           # соберёт libasm.a
-// make test # соберёт main.c и слинкует с библиотекой
-// make dump      # выведет дизассемблированный код исполняемого файла
+// make     
+// make test
+// make dump

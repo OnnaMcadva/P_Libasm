@@ -1,15 +1,16 @@
 section .text
-	global ft_strlen
+	global ft_strlen		 ; "global" is for main.c
 
 ; | input:
-; |   rdi = pointer to null-terminated string
+; |   rdi = pointer to null-terminated string (const char *s)
 ; | output:
-; |   rax = length of string (excluding null terminator)
+; |   rax = length of string (size_t length)
+
 ft_strlen:
 	xor rax, rax             ; clear rax, length = 0
 .loop:
-	cmp byte [rdi + rax], 0  ; check if current byte is zero
-	je .end                  ; if zero, jump to end
+	cmp byte [rdi + rax], 0  ; check if current byte is "\0"
+	je .end                  ; "Jump if Equal", jump to end
 	inc rax                  ; increment length counter
 	jmp .loop                ; repeat loop
 .end:
